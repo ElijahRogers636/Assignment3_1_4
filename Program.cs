@@ -27,40 +27,33 @@ namespace Assignment3_1_4
 
         static string FindCoordinateQuadrant(double inputX_axis, double inputY_axis)
         {
-            // Check if both point X and Y are 0 if so return domain (0,0)
-            if (inputX_axis != 0 || inputY_axis != 0)
+
+            // If x is pos check for Y else X is negative and check for Y 
+            if(inputX_axis < 0)
             {
-                // Check if x is pos or neg then check y symbol.
-                if(inputX_axis < 0)
+                if( inputY_axis < 0 )
                 {
-                    if( inputY_axis < 0 )
-                    {
-                        return "Quadrant 3";
-                    }
-                    else
-                    {
-                        return "Quadrant 2";
-                    }
+                    return "Quadrant 3";
                 }
                 else
                 {
-                    if (inputY_axis < 0)
-                    {
-                        return "Quadrant 4";
-                    }
-                    else
-                    {
-                        return "Quadrant 1";
-                    }
+                    return "Quadrant 2";
                 }
             }
             else
             {
-                return "Domain (0,0)";
+                if (inputY_axis < 0)
+                {
+                    return "Quadrant 4";
+                }
+                else
+                {
+                    return "Quadrant 1";
+                }
             }
         }
 
-        // Normalizes the coordinates to 1 or -1, create a string to use in switch statement (Domain will be considered 1st quadrant)
+        // Normalizes the coordinates to 1 or -1, create a string to use in switch statement
         static string AnotherFindCoordinateQuadrant(double inputX_axis, double inputY_axis)
         {
             string coordinates = $"({NormalizeCoordinates(inputX_axis)},{NormalizeCoordinates(inputY_axis)})";
