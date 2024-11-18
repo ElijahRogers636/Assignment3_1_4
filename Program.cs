@@ -1,4 +1,6 @@
-﻿namespace Assignment3_1_4
+﻿using System.Text;
+
+namespace Assignment3_1_4
 {
     internal class Program
     {
@@ -19,6 +21,8 @@
             Console.WriteLine($"Point: ({x_axis},{y_axis})");
 
             Console.WriteLine($"This point is in {FindCoordinateQuadrant(x_axis, y_axis)}");
+            Console.WriteLine();
+            Console.WriteLine($"This point is in {AnotherFindCoordinateQuadrant(x_axis, y_axis)}");
         }
 
         static string FindCoordinateQuadrant(double inputX_axis, double inputY_axis)
@@ -53,6 +57,41 @@
             else
             {
                 return "Domain (0,0)";
+            }
+        }
+
+        // Normalizes the coordinates to 1 or -1, create a string to use in switch statement
+        static string AnotherFindCoordinateQuadrant(double inputX_axis, double inputY_axis)
+        {
+            string coordinates = $"({NormalizeCoordinates(inputX_axis)},{NormalizeCoordinates(inputY_axis)})";
+
+            switch (coordinates)
+            {
+                case "(1,1)":
+                    return "Quadrant 1";
+                case "(-1,1)":
+                    return "Quadrant 2";
+                case "(-1,-1)":
+                    return "Quadrant 3";
+                case "(1,-1)":
+                    return "Quadrant 4";
+                default:
+                    return "Number entered was not a number";
+            }
+
+
+        }
+
+        // Nomralizes a number to -1 or 1 based on if a number is negative or positive
+        static int NormalizeCoordinates(double num)
+        {
+            if(num < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
             }
         }
     }
