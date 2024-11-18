@@ -60,7 +60,7 @@ namespace Assignment3_1_4
             }
         }
 
-        // Normalizes the coordinates to 1 or -1, create a string to use in switch statement
+        // Normalizes the coordinates to 1 or -1, create a string to use in switch statement (Domain will be considered 1st quadrant)
         static string AnotherFindCoordinateQuadrant(double inputX_axis, double inputY_axis)
         {
             string coordinates = $"({NormalizeCoordinates(inputX_axis)},{NormalizeCoordinates(inputY_axis)})";
@@ -76,7 +76,7 @@ namespace Assignment3_1_4
                 case "(1,-1)":
                     return "Quadrant 4";
                 default:
-                    return "Number entered was not a number";
+                    return "How did you get here?";
             }
 
 
